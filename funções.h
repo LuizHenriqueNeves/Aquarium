@@ -50,8 +50,8 @@ int intensidade = 358;// 35%
 
 boolean ledOnOff = false;
 
-char ssid[20] = "Neves1_2G"; // Rede WiFi
-char pw[20] = "FamiliaS";// Senha da Rede WiFi
+char ssid[20] = ""; // Rede WiFi
+char pw[20] = "";// Senha da Rede WiFi
 
 //----------------------  Funções  -----------------------------//
 //-------------------------//
@@ -87,7 +87,7 @@ void ajustaHorario() {
 //---------------------------------//
 //        Cria military time       //
 //---------------------------------//
-//create military time output [0000,2400)
+//create military time output like [0000,2400)
 
 void militaryTime() {
   horas = ((ntp.getHours() * 100) + ntp.getMinutes());
