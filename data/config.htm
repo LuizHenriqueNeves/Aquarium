@@ -1,0 +1,103 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wifi</title>
+</head>
+<style>
+  body {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    color: #ffffff;
+    margin: 5px;
+    background: #2e3c55;
+    min-width: 200px;
+    max-width: 325px;
+    margin: auto;
+    padding: 50px;
+  }
+  h1 {
+    font-size: 18px;
+    text-align: center;
+    color: rgb(60, 153, 234);
+    background: #787878;
+    border-radius: 7px 7px 0px 0px;
+    padding: 7px 4px 0px 4px;
+    margin: 0px;
+  }
+  h2 {
+    font-size: 12px;
+    text-align: left;
+    color: rgb(60, 153, 234);
+    background: #787878;
+    padding: 4px 8px 4px 8px;
+    margin: 0px;
+    border: #787878 solid 2px;
+  }
+  h3 {
+    font-size: 12px;
+    text-align: left;
+    font-weight: normal;
+    background: #ffffff;
+    padding: 7px;
+    margin: 0px;
+    border: #787878 solid 2px;
+    border-radius: 0px 0px 7px 7px;
+  }
+  table {
+    width: 100%;
+  }
+  th {
+    font-size: 11px;
+    background: rgb(59, 109, 153);
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px 0px 0px 5px;
+    width: 25%;
+  }
+  td {
+    font-size: 11px;
+    background: #938f8f;
+    padding: 5px;
+    border-radius: 0px 5px 5px 0px;
+  }
+  a {
+    font-size: 12px;
+    color: #ffffff;
+  }
+  input[type=submit] {
+    border: 2px solid #333333;
+    border-radius: 5px;
+    padding: 5px;
+    width: 90px;
+  }
+  .msg {
+    font-size: 14px;
+    text-align: center;
+    padding: 5px;
+    border-radius: 5px;
+  }
+</style>
+<body>
+  <form name="wifi" action="configSave" method="post">
+  <table>
+      <tr>
+        <th>Identificação</th>
+        <td>
+          <input type="text" name="id" value="#id#" size="25" maxlength="29">
+        </td>
+      </tr>
+      <th rowspan="2">Wi-Fi</th>
+      <td>SSID: <input type="text" name="ssid" size="25" maxlength="29"></td>
+    </tr>
+    <tr>
+      <td>Senha: <input type="password" name="pw" size="25" maxlength="29"></td>
+    </tr>
+    <tr>
+      <th colspan="2" class="msg"><input id="save" type="submit" value="Gravar" onClick="return confirm('Gravar a configuração?')"></th>
+    </tr>
+  </table>
+  </form>
+  </h3>
+</body>
+</html>

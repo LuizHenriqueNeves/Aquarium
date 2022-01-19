@@ -1,0 +1,180 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Aquário</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="main.css" />
+	<noscript>
+		<link rel="stylesheet" href="noscript.css" />
+	</noscript>
+</head>
+<link rel='icon' type='image/png' href='https://topcorals.pt/wp-content/uploads/2017/04/favicon.png' />
+
+<body class="is-preload">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+
+		<!-- Header -->
+		<header id="header">
+			<div class="logo"><img src="favicon.png" id="Aqua" width="70" height="70"></div>
+			<div class="content">
+				<div class="inner">
+					<h1>Aquário</h1>
+
+					<div class="table-wrapper">
+						<table>
+							<tbody>
+								<tr>
+									<td>Ligar a luz:</td>
+									<td>#HLLed#:#MLLed#</td>
+								</tr>
+								<tr>
+									<td>Fim de tarde:</td>
+									<td>#HDLed#:#MDLed#</td>
+								</tr>
+								<tr>
+									<td>Desligar a luz:</td>
+									<td>#HNoite#:#MNoite#</td>
+								</tr>
+								<tr>
+									<td>IP Interno:</td>
+									<td>#sysIP#</td>
+								</tr>
+								<tr>
+									<td>IP Cliente:</td>
+									<td>#clientIP#</td>
+								</tr>
+								<tr>
+									<td style="font-size: 1.1rem">Intensidade da Luz:</td>
+									<td style="font-size: 1.1rem">#nivel#</td>
+								</tr>
+							</tbody>
+						</table>
+						<div class="field half">
+							<label for="clock" style="font-size: 1.5rem; margin: 1.4rem 0 0 0;">
+								<td>#hora#</td>
+							</label>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="ligaDesliga">
+				<label class="switch">
+					<input type="checkbox" name="led" id="acende" value="0" onclick="toggle_check(this)">
+					<span class="slider round"></span>
+				</label>
+			</div>
+			<div class="slidecontainerBig">
+				<input type="range" min="0" max="100" value="50" class="sliderBig" id="branco"
+					onchange="alteraValor(document.getElementById('demoBranco').innerHTML,1)">
+				<p>Luz Branca: <span id="demoBranco"></span></p>
+				<input type="range" min="0" max="100" value="50" class="sliderBig" id="azul"
+					onchange="alteraValor(document.getElementById('demoAzul').innerHTML,2)">
+				<p>Luz Azul: <span id="demoAzul"></span></p>
+				<input type="range" min="0" max="100" value="50" class="sliderBig" id="uv"
+					onchange="alteraValor(document.getElementById('demoUV').innerHTML,3)">
+				<p>Luz UV: <span id="demoUV"></span></p>
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#edHorario">Editar Horários</a></li>
+					<li><a href="#config">Wifi</a></li>
+					<li><a href="/reconfig" onclick="return confirm('Reconfigurar módulo?')">Reconfigurar</a></li>
+					<li><a href="/reboot" onclick="return confirm('Reiniciar módulo?')">Reiniciar</a></li>
+
+				</ul>
+			</nav>
+		</header>
+
+		<!-- Main -->
+		<div id="main">
+
+			<!-- Editar Horários -->
+			<article id="edHorario">
+				<h2 class="major">Editar Horários</h2>
+				<form name="configHorario" action="configSaveHorario" method="post">
+					<table>
+						<tr>
+							<th colspan="2" class="msg">Horários</th>
+						</tr>
+						<tr>
+						<tr>
+							<th>Ligar a luz</th>
+							<td>
+								<input type="text" name="HLLed" value="#HLLed#" size="5" maxlength="29"
+									style="width:25%">
+								<input type="text" name="MLLed" value="#MLLed#" size="5" maxlength="29"
+									style="width:25%">
+							</td>
+						</tr>
+						<tr>
+							<th>Fim de tarde</th>
+							<td>
+								<input type="text" name="HDLed" value="#HDLed#" size="5" maxlength="29"
+									style="width:25%">
+								<input type="text" name="MDLed" value="#MDLed#" size="5" maxlength="29"
+									style="width:25%">
+							</td>
+						</tr>
+						<tr>
+							<th>Desligar a luz</th>
+							<td>
+								<input type="text" name="HNoite" value="#HNoite#" size="5" maxlength="29"
+									style="width:25%">
+								<input type="text" name="MNoite" value="#MNoite#" size="5" maxlength="29"
+									style="width:25%">
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2" class="msg"><input id="save" type="submit" value="Salvar"
+									onClick="return confirm('Gravar a configuração?')"></th>
+						</tr>
+					</table>
+				</form>
+			</article>
+
+			<!-- Wifi -->
+			<article id="config">
+				<h2 class="major">Configuração do Wifi</h2>
+				<form name="config" action="configSave" method="post">
+					<table>
+						<tr>
+							<th colspan="2" class="msg">Configuração</th>
+						</tr>
+						<tr>
+							<th rowspan="2">Wi-Fi</th>
+							<td>
+								SSID: <input type="text" name="ssid" size="25" maxlength="29">
+							</td>
+						</tr>
+						<tr>
+							<td>
+								Senha: <input type="password" name="pw" size="25" maxlength="29">
+							</td>
+						</tr>
+						<tr>
+							<th colspan="2" class="msg"><input id="save" type="submit" value="Salvar"
+									onClick="return confirm('Gravar a configuração?')"></th>
+						</tr>
+					</table>
+				</form>
+			</article>
+		</div>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<p class="copyright">&copy; Design: Luiz Henrique (͡• ͜ʖ ͡•)</p>
+		</footer>
+	</div>
+
+	<!-- Scripts -->
+	<script src="jquery.min.js"></script>
+	<script src="breakpoints.min.js"></script>
+	<script src="main.js"></script>
+	<script src="util.js"></script>
+</body>
+
+</html>

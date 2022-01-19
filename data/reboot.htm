@@ -1,0 +1,50 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+	<title>Aquário</title>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+	<link rel="stylesheet" href="main.css" />
+</head>
+<script>
+	var t = 5;
+
+	function decT() {
+		t--;
+		document.getElementById("time").innerHTML = t;
+		if (t == 0) {
+			window.location = "/";
+		} else {
+			window.setTimeout("decT()", 1000);
+		}
+	}
+</script>
+<link rel='icon' type='image/png' href='https://topcorals.pt/wp-content/uploads/2017/04/favicon.png' />
+
+<body class="is-preload" onLoad="decT()">
+
+	<!-- Wrapper -->
+	<div id="wrapper">
+		<!-- Reboot -->
+		<article id="reboot" style="width: 40%;">
+			<table>
+				<tr>
+					<th colspan="2" class="msg">Reiniciar</th>
+				</tr>
+				<tr style="height: 150px;">
+					<th style="width: 25%;">Aguarde</th>
+					<td><span id="time">20</span> segundos</td>
+				</tr>
+			</table>
+		</article>
+
+		<!-- Footer -->
+		<footer id="footer">
+			<p class="copyright">&copy; Design: Luiz Henrique.</p>
+		</footer>
+	</div>
+
+</body>
+
+</html>
